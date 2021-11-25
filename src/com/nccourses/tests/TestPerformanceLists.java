@@ -3,6 +3,7 @@ package com.nccourses.tests;
 import com.nccourses.mylinkedlist.MyLinkedList;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class TestPerformanceLists {
@@ -236,7 +237,6 @@ public class TestPerformanceLists {
                 size + ", countadd: " + count + " : " + (finish - start));
     }
 
-
     public static void testJavaArrListAddIndex(int size, int count, int index){
         ArrayList<Integer> javaArrList = new ArrayList<>();
         for(int i = 0; i < size; i++){
@@ -301,6 +301,70 @@ public class TestPerformanceLists {
         finish = System.nanoTime();
         System.out.println("time javaArrList remove(0), size: " +
                 size + ", countremove: " + count + " : " + (finish - start));
+    }
+
+
+    public static void testMyLinkListRemoveWithIter(int size){
+        MyLinkedList<Integer> myList = new MyLinkedList<>();
+        for(int i = 0; i < size; i++){
+            myList.add((int)(Math.random() * 5));
+        }
+
+        Iterator<Integer> itr = myList.iterator();
+        Integer value = 0;
+
+        long start;
+        long finish;
+        start = System.nanoTime();
+        while(itr.hasNext()){
+            if (value.equals(itr.next()))
+                itr.remove();
+        }
+        finish = System.nanoTime();
+
+        System.out.println("LinkList remove with iter, size = " + size + ", time: " + (finish - start));
+    }
+
+    public static void testJavaLinkListRemoveWithIter(int size){
+        LinkedList<Integer> javaList = new LinkedList<>();
+        for(int i = 0; i < size; i++){
+            javaList.add((int)(Math.random() * 5));
+        }
+
+        Iterator<Integer> itr = javaList.listIterator();
+        Integer value = 0;
+
+        long start;
+        long finish;
+        start = System.nanoTime();
+        while(itr.hasNext()){
+            if (value.equals(itr.next()))
+                itr.remove();
+        }
+        finish = System.nanoTime();
+
+        System.out.println("LinkList remove with iter, size = " + size + ", time: " + (finish - start));
+    }
+
+    public static void testJavaArrListRemoveWithIter(int size){
+        ArrayList<Integer> javaArr = new ArrayList<>();
+        for(int i = 0; i < size; i++){
+            javaArr.add((int)(Math.random() * 5));
+        }
+
+        Iterator<Integer> itr = javaArr.listIterator();
+        Integer value = 0;
+
+        long start;
+        long finish;
+        start = System.nanoTime();
+        while(itr.hasNext()){
+            if (value.equals(itr.next()))
+                itr.remove();
+        }
+        finish = System.nanoTime();
+
+        System.out.println("ArrList remove with iter, size = " + size + ", time: " + (finish - start));
     }
 
 }

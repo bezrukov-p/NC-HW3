@@ -186,6 +186,7 @@ public class MyLinkedList<E> implements ILinkedList<E>{
         Iterator<E> it = new Iterator<E>() {
 
             MyLinkedList.Node<E> current = first;
+            MyLinkedList.Node<E> previous = null;
             int index = 0;
 
             @Override
@@ -195,10 +196,50 @@ public class MyLinkedList<E> implements ILinkedList<E>{
 
             @Override
             public E next() {
+                previous = current;
                 E elem = current.item;
                 current = current.next;
                 index++;
                 return elem;
+            }
+
+            @Override
+            public void remove() {
+                if (previous == null)
+                    throw new IllegalStateException();
+                if (size == 1) {
+                    clear();
+                    current = null;
+                    previous = null;
+                    index = 0;
+                    return;
+                }
+
+                if (index == 1 || previous == first){
+                    first = first.next;
+                    first.prev = null;
+                    current = first;
+                    previous = null;
+                    size--;
+                    index--;
+                    return;
+                }
+                if (index == size){
+                    last = last.prev;
+                    last.next = null;
+                    previous = null;
+                    current = null;
+                    size--;
+                    index--;
+                    return;
+                }
+
+                MyLinkedList.Node<E> tmp = previous;
+                tmp.prev.next = tmp.next;
+                tmp.next.prev = tmp.prev;
+                previous = null;
+                index--;
+                size--;
             }
         };
 

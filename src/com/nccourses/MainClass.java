@@ -10,12 +10,10 @@ import com.nccourses.tests.TestPerformanceSets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class MainClass {
     public static void main(String[] args) throws InterruptedException {
-
-        //TestMyList.testMyList();
-
         //ADD
         //10.000.000
         //TestPerformanceLists.testMyLinkListAdd(10000000);
@@ -86,6 +84,11 @@ public class MainClass {
         //TestPerformanceMap.testHashMapRemove(100000, 20000);
         //TestPerformanceMap.testLinkedHashMapRemove(100000, 20000);
         //TestPerformanceMap.testTreeMapRemove(100000, 20000);
+
+
+        //TestPerformanceLists.testMyLinkListRemoveWithIter(50000);
+        //TestPerformanceLists.testJavaLinkListRemoveWithIter(50000);
+        //TestPerformanceLists.testJavaArrListRemoveWithIter(50000);
 
     }
 }
