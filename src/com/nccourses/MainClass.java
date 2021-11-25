@@ -45,6 +45,11 @@ public class MainClass {
         //TestPerformanceLists.testJavaLinkListAddIndex(100000, 20000);
         //TestPerformanceLists.testJavaArrListAddIndex(100000, 20000);
 
+        //add INDEX 0
+        //TestPerformanceLists.testMyLinkListAddIndex(100000, 1000, 0);
+        //TestPerformanceLists.testJavaLinkListAddIndex(100000, 1000, 0);
+        //TestPerformanceLists.testJavaArrListAddIndex(100000, 1000, 0);
+
         //TestPerformanceLists.testMyLinkListAddIndex(1000, 100);
         //TestPerformanceLists.testJavaLinkListAddIndex(1000, 100);
         //TestPerformanceLists.testJavaArrListAddIndex(1000, 100);
@@ -52,6 +57,11 @@ public class MainClass {
         //TestPerformanceLists.testMyLinkListRemove(100000,20000);
         //TestPerformanceLists.testJavaLinkListRemove(100000,20000);
         //TestPerformanceLists.testJavaArrListRemove(100000,20000);
+
+        // INDEX 0
+        //TestPerformanceLists.testMyLinkListRemove(100000,20000, 0);
+        //TestPerformanceLists.testJavaLinkListRemove(100000,20000, 0);
+        //TestPerformanceLists.testJavaArrListRemove(100000,20000, 0);
 
         //###########################################################################
 

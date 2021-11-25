@@ -202,4 +202,105 @@ public class TestPerformanceLists {
     }
 
 
+    public static void testMyLinkListAddIndex(int size, int count, int index){
+        MyLinkedList<Integer> myList = new MyLinkedList<>();
+        for(int i = 0; i < size; i++){
+            myList.add(i);
+        }
+
+        long start;
+        long finish;
+        start = System.nanoTime();
+        for(int i = 0; i < count; i++){
+            myList.add(index, -1);
+        }
+        finish = System.nanoTime();
+        System.out.println("time MyLinkList indexadd(0), size: " +
+                size + ", countadd: " + count + " : " + (finish - start));
+    }
+
+    public static void testJavaLinkListAddIndex(int size, int count, int index){
+        LinkedList<Integer> javaLinkList = new LinkedList<>();
+        for(int i = 0; i < size; i++){
+            javaLinkList.add(i);
+        }
+
+        long start;
+        long finish;
+        start = System.nanoTime();
+        for(int i = 0; i < count; i++){
+            javaLinkList.add(index, -1);
+        }
+        finish = System.nanoTime();
+        System.out.println("time javaLinkList indexadd(0), size: " +
+                size + ", countadd: " + count + " : " + (finish - start));
+    }
+
+
+    public static void testJavaArrListAddIndex(int size, int count, int index){
+        ArrayList<Integer> javaArrList = new ArrayList<>();
+        for(int i = 0; i < size; i++){
+            javaArrList.add(i);
+        }
+
+        long start;
+        long finish;
+        start = System.nanoTime();
+        for(int i = 0; i < count; i++){
+            javaArrList.add(index, -1);
+        }
+        finish = System.nanoTime();
+        System.out.println("time javaArrList indexadd(0), size: " +
+                size + ", countadd: " + count + " : " + (finish - start));
+    }
+
+
+    public static void testMyLinkListRemove(int size, int count, int index){
+        MyLinkedList<Integer> myList = new MyLinkedList<>();
+        for(int i = 0; i < size; i++){
+            myList.add(i);
+        }
+        long start;
+        long finish;
+        start = System.nanoTime();
+        for(int i = 0; i < count; i++){
+            myList.remove(index);
+        }
+        finish = System.nanoTime();
+        System.out.println("time myLinkList remove(0), size: " +
+                size + ", countremove: " + count + " : " + (finish - start));
+    }
+
+    public static void testJavaLinkListRemove(int size, int count, int index){
+        LinkedList<Integer> javaLink = new LinkedList<>();
+        for(int i = 0; i < size; i++){
+            javaLink.add(i);
+        }
+        long start;
+        long finish;
+        start = System.nanoTime();
+        for(int i = 0; i < count; i++){
+            javaLink.remove(index);
+        }
+        finish = System.nanoTime();
+        System.out.println("time javaLinkList remove(0), size: " +
+                size + ", countremove: " + count + " : " + (finish - start));
+    }
+
+    public static void testJavaArrListRemove(int size, int count, int index){
+        ArrayList<Integer> javaArrList = new ArrayList<>();
+        for(int i = 0; i < size; i++){
+            javaArrList.add(i);
+        }
+        long start;
+        long finish;
+        start = System.nanoTime();
+        for(int i = 0; i < count; i++){
+            javaArrList.remove(index);
+        }
+        finish = System.nanoTime();
+        System.out.println("time javaArrList remove(0), size: " +
+                size + ", countremove: " + count + " : " + (finish - start));
+    }
+
 }
